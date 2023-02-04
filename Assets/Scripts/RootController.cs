@@ -7,6 +7,7 @@ public class RootController : MonoBehaviour
 
     public GameObject root; //Reference to prefab to create root objects
     private PlayerController playerController;
+    public LayerMask rootableLayerMask;
 
     private Stack<GameObject> roots = new Stack<GameObject>(); //Queue to store root objects
 
@@ -57,9 +58,10 @@ public class RootController : MonoBehaviour
         if (roots.Count < maxRoots && playerController.IsGrounded())
         {
             GameObject temp = (GameObject)Instantiate(root, new Vector3(mousePosition.x, mousePosition.y, 1), Quaternion.identity);
+            Collider2D collider = temp.GetComponent<Collider2D>();
             RaycastHit2D[] hits = new RaycastHit2D[1];
             //Create root if touching player
-            if (temp.GetComponent<Collider2D>().Cast(Vector2.zero, hits, rootWidth) > 0)
+            if (collider.Cast(Vector2.zero, hits, rootWidth) > 0)
             {
                 roots.Push((GameObject)temp);
                 Debug.Log("Root created on player");
@@ -76,6 +78,14 @@ public class RootController : MonoBehaviour
                     Debug.Log("Root created on root");
                     return;
                 }
+            }
+            //Create root if touching "rootable" layer
+            RaycastHit2D raycastHit = Physics2D.BoxCast(collider.bounds.center, collider.bounds.size, 0f, Vector2.down, 0f, rootableLayerMask);
+            if(raycastHit.collider != null)
+            {
+                roots.Push((GameObject)temp);
+                Debug.Log("Root created on rootable Layer");
+                return;
             }
 
 
