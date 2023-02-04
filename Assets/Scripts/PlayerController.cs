@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour
 
 
     //returns wether or not the player is grounded
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         RaycastHit2D[] hits = new RaycastHit2D[1];
         return playerCollider.Cast(Vector2.down, hits, groundCheckDist) > 0;
