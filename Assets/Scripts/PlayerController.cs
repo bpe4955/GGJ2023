@@ -6,8 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] KeyCode jumpKey, leftKey, rightKey;
     [SerializeField] float moveSpeed, jumpVelocity;
-    bool isGrounded; //wether or not the player is touching the ground
     Rigidbody2D rb;
+    Collider2D playerCollider;
     Vector2 moveDir; //stores the direction the player wants to move in (horiztonally)
     bool wantsToJump; //if the player wants to jump, uses input from jumpKey
     [SerializeField] float groundCheckDist = 0.02f; //how far the raycast to check if the player is grounded goes
@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerCollider = GetComponent<Collider2D>();
     }
 
     private void Update()
@@ -28,6 +29,8 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         MoveHorizontally();
+
+        TryToJump();
     }
 
 
@@ -65,7 +68,29 @@ public class PlayerController : MonoBehaviour
     {
         //sets x velocity directly
         Vector2 currentVeloc = rb.velocity;
-        currentVeloc.x = moveDir.normalized.x * moveSpeed;
-        rb.velocity = currentVeloc;
+		//if in air then dont move as much
+		currentVeloc.x = moveDir.normalized.x * moveSpeed;
+		rb.velocity = currentVeloc;
+    }
+
+
+    //try to jump if the player wants to jump and if they are grounded
+    void TryToJump()
+    {
+        if(wantsToJump && IsGrounded())
+        {
+            //sets y velocity directly
+            Vector2 currentVeloc = rb.velocity;
+            currentVeloc.y = jumpVelocity;
+            rb.velocity = currentVeloc;
+        }
+    }
+
+
+    //returns wether or not the player is grounded
+    bool IsGrounded()
+    {
+        RaycastHit2D[] hits = new RaycastHit2D[1];
+        return playerCollider.Cast(Vector2.down, hits, groundCheckDist) > 0;
     }
 }

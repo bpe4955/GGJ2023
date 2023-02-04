@@ -181,8 +181,8 @@ MonoBehaviour:
   jumpKey: 32
   leftKey: 97
   rightKey: 100
-  moveSpeed: 3
-  jumpVelocity: 10
+  moveSpeed: 6
+  jumpVelocity: 9
   groundCheckDist: 0.02
   groundCheckPoint: {fileID: 5907184218344657771}
   groundCheckLayers:
