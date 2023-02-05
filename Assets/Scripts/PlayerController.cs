@@ -38,18 +38,7 @@ public class PlayerController : MonoBehaviour
     void SetMoveDir()
     {
         //left right movement
-        if (Input.GetKey(leftKey))
-        {
-            moveDir.x = -1;
-        }
-        else if(Input.GetKey(rightKey))
-        {
-            moveDir.x = 1;
-        }
-        else
-        {
-            moveDir.x = 0;
-        }
+        moveDir.x = Input.GetAxisRaw("Horizontal");
 
         //jumping
         if(Input.GetKey(jumpKey))

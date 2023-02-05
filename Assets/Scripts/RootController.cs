@@ -63,7 +63,6 @@ public class RootController : MonoBehaviour
             if (collider.Cast(Vector2.zero, hits, rootWidth) > 0)
             {
                 roots.Push((GameObject)temp);
-                Debug.Log("Root created on player");
                 return;
             }
             //Create root if touching another root
@@ -74,7 +73,6 @@ public class RootController : MonoBehaviour
                     && temp.transform.position.y > +root.transform.position.y - rootWidth && temp.transform.position.y <= root.transform.position.y + rootWidth)
                 {
                     roots.Push((GameObject)temp);
-                    Debug.Log("Root created on root");
                     return;
                 }
             }
@@ -83,7 +81,6 @@ public class RootController : MonoBehaviour
             if(raycastHit.collider != null)
             {
                 roots.Push((GameObject)temp);
-                Debug.Log("Root created on rootable Layer");
                 return;
             }
 
