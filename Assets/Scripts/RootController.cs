@@ -34,13 +34,13 @@ public class RootController : MonoBehaviour
         }
 
         // H - Delete most recent root
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Destroy(roots.Pop());
         }
 
         // G - Delete all roots
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.R))
         {
             int count = roots.Count;
             for (int i = 0; i < count; i++)
