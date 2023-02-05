@@ -11,7 +11,7 @@ public class RootController : MonoBehaviour
 
     private Stack<GameObject> roots = new Stack<GameObject>(); //Queue to store root objects
 
-    public int maxRoots = 10; //Max number of roots that can be on the screen
+    public int maxRoots = 100; //Max number of roots that can be on the screen
 
     private int rootWidth = 1;
 
