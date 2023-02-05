@@ -11,14 +11,13 @@ public class RootController : MonoBehaviour
 
     private Stack<GameObject> roots = new Stack<GameObject>(); //Queue to store root objects
 
-    private int maxRoots; //Max number of roots that can be on the screen
+    public int maxRoots = 10; //Max number of roots that can be on the screen
 
     private int rootWidth = 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        maxRoots = 10;
         playerController = GetComponent<PlayerController>();
     }
 
