@@ -136,7 +136,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4a1515ca449dcf64db5fcb1b7937d2bf, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   leftKey: 97
   rightKey: 100
   moveSpeed: 6
-  jumpVelocity: 9
+  jumpVelocity: 7
   groundCheckDist: 0.02
   groundCheckPoint: {fileID: 4688210734204446380}
   groundCheckLayers:
@@ -204,5 +204,5 @@ MonoBehaviour:
   root: {fileID: 9189848720380037124, guid: af2a1aab792ff1b49b2cca1fb6827ae0, type: 3}
   rootableLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   maxRoots: 100
