@@ -438,7 +438,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1049300825544868579, guid: 860e0b4f6a0127e4c942fb9253292987, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1049300825544868579, guid: 860e0b4f6a0127e4c942fb9253292987, type: 3}
       propertyPath: m_LocalPosition.x
@@ -727,7 +727,7 @@ GameObject:
   - component: {fileID: 928573309}
   - component: {fileID: 928573308}
   - component: {fileID: 928573310}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Soil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,7 +776,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.2924528, g: 0.18392308, b: 0.120016016, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
