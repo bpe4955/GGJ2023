@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -82,4 +83,25 @@ public class PlayerController : MonoBehaviour
         RaycastHit2D[] hits = new RaycastHit2D[1];
         return playerCollider.Cast(Vector2.down, hits, groundCheckDist) > 0;
     }
+
+    
+
+    //Handling player death
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Death"))
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        //Animation stuff if wanted
+        // Disable movement
+        rb.bodyType = RigidbodyType2D.Static;
+        // Restart level (Happens immedietly, might want to have death animation call the scene reset)
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
 }
